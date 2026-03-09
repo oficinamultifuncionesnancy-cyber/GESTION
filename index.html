@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<!-- saved from url=(0079)file:///C:/Users/HP/Downloads/Gesti%C3%B3nVial_Tr%C3%A1mites_Vehiculares_5.html -->
+<!-- saved from url=(0079)file:///C:/Users/HP/Downloads/Gesti%C3%B3nVial_Tr%C3%A1mites_Vehiculares_7.html -->
 <html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GestiónVial — Trámites Vehiculares</title>
 <link href="./index_files/css2" rel="stylesheet">
@@ -1054,7 +1053,8 @@ document.getElementById('pdfEditorOverlay').addEventListener('mouseup',function(
 
 function edDownload(){
   var j=S.jobs.find(function(x){return x.id===edJobId;});if(!j)return;
-  var jsPDF=window.jspdf.jsPDF;
+  var jsPDF=(window.jspdf&&window.jspdf.jsPDF)||(window.jsPDF)||null;
+  if(!jsPDF){toast('Error: jsPDF no disponible','err');return;}
   var doc=new jsPDF({unit:'mm',format:'a4'});
   edPages.forEach(function(page,pi){
     if(pi>0)doc.addPage();
