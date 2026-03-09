@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0079)file:///C:/Users/HP/Downloads/Gesti%C3%B3nVial_Tr%C3%A1mites_Vehiculares_7.html -->
 <html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GestiónVial — Trámites Vehiculares</title>
 <link href="./index_files/css2" rel="stylesheet">
-<script src="./index_files/jspdf.umd.min.js.descarga"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 :root{--bg:#0e0f11;--surface:#16181c;--surface2:#1e2127;--border:#2a2d35;--accent:#e8ff47;--accent2:#47c4ff;--text:#f0f0ee;--text-dim:#7a7f8e;--danger:#ff4757;--success:#2ecc71;--warning:#f39c12;--info:#47c4ff;--radius:10px;--tr:0.18s cubic-bezier(.4,0,.2,1);}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -1053,7 +1053,7 @@ document.getElementById('pdfEditorOverlay').addEventListener('mouseup',function(
 
 function edDownload(){
   var j=S.jobs.find(function(x){return x.id===edJobId;});if(!j)return;
-  var jsPDF=(window.jspdf&&window.jspdf.jsPDF)||(window.jsPDF)||null;
+  var jsPDF=(window.jspdf&&(window.jspdf&&window.jspdf.jsPDF)||(window.jsPDF))||(window.jsPDF)||null;
   if(!jsPDF){toast('Error: jsPDF no disponible','err');return;}
   var doc=new jsPDF({unit:'mm',format:'a4'});
   edPages.forEach(function(page,pi){
