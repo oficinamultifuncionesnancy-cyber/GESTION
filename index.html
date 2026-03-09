@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<!-- saved from url=(0043)file:///C:/Users/HP/Downloads/index_10.html -->
-<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="es"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GestiónVial — Trámites Vehiculares</title>
-<link href="./index_files/css2" rel="stylesheet">
-<script src="./index_files/jspdf.umd.min.js.descarga"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 :root{--bg:#0e0f11;--surface:#16181c;--surface2:#1e2127;--border:#2a2d35;--accent:#e8ff47;--accent2:#47c4ff;--text:#f0f0ee;--text-dim:#7a7f8e;--danger:#ff4757;--success:#2ecc71;--warning:#f39c12;--info:#47c4ff;--radius:10px;--tr:0.18s cubic-bezier(.4,0,.2,1);}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -141,20 +140,20 @@ select option{background:var(--surface2);}
 <body>
 <header>
   <div class="logo">Gestión<span>Vial</span></div>
-  <div id="syncBanner" style="display: none; align-items: center; gap: 8px; font-size: 0.72rem; color: var(--accent); background: rgba(232, 255, 71, 0.08); border: 1px solid rgba(232, 255, 71, 0.2); border-radius: 7px; padding: 5px 12px;">☁️ Cargando datos…</div>
-  <div class="bc" id="breadcrumb"><span class="act">Proveedores</span></div>
+  <div id="syncBanner" style="display:none;align-items:center;gap:8px;font-size:.72rem;color:var(--accent);background:rgba(232,255,71,.08);border:1px solid rgba(232,255,71,.2);border-radius:7px;padding:5px 12px;">☁️ Cargando datos…</div>
+  <div class="bc" id="breadcrumb"></div>
 </header>
 <div class="app">
   <aside class="sidebar">
     <div class="stitle">Proveedores</div>
-    <div id="sbProviders"><div class="nitem" onclick="selectProvider(&#39;mmhc9dual7xws&#39;)"><span>🏢</span>MILTON</div><div class="nitem" onclick="selectProvider(&#39;mmhc9tl6my4z6&#39;)"><span>🏢</span>JORJE</div><div class="nitem" onclick="selectProvider(&#39;mmhc9xoxrlfej&#39;)"><span>🏢</span>CUÑADO</div><div class="nitem" onclick="selectProvider(&#39;mmhca0uxoeljn&#39;)"><span>🏢</span>ANDREA</div><div class="nitem" onclick="selectProvider(&#39;mmhca742g5z5d&#39;)"><span>🏢</span>ERICK</div></div>
+    <div id="sbProviders"><div class="nitem active" onclick="selectProvider(&#39;mmgn7nwuhakg&#39;)"><span>🏢</span>Milton</div></div>
     <div class="ssep"></div>
     <div class="nitem" id="navPP" onclick="renderPagosProveedor()"><span>💳</span> Pagos a Proveedores</div>
     <div class="sact">
       <button class="btn btn-p btn-full btn-sm" onclick="openMod(&#39;modProvider&#39;)">+ Nuevo proveedor</button>
     </div>
   </aside>
-  <main class="main" id="mainContent"><div class="ph"><div><div class="pt">Proveedores</div><div class="ps">5 proveedor(es)</div></div><button class="btn btn-p" onclick="openMod(&#39;modProvider&#39;)">+ Nuevo proveedor</button></div><div class="pgrid"><div class="pcard"><div class="pcname">MILTON</div><div class="pcstats"><span class="pcs">⏳0</span><span class="pcs">📤0</span><span class="pcs">📥0</span><span class="pcs">✅0</span></div><div class="pcact"><button class="btn btn-p btn-sm" onclick="selectProvider(&#39;mmhc9dual7xws&#39;)">Ver trabajos</button><button class="btn btn-g btn-sm" onclick="editProv(&#39;mmhc9dual7xws&#39;,event)">Editar</button><button class="btn btn-d btn-sm" onclick="deleteProv(&#39;mmhc9dual7xws&#39;,event)">Eliminar</button></div></div><div class="pcard"><div class="pcname">JORJE</div><div class="pcstats"><span class="pcs">⏳0</span><span class="pcs">📤1</span><span class="pcs">📥0</span><span class="pcs">✅0</span><span class="pcs" style="color:var(--accent)">💰₡130</span><span class="pcs" style="color:var(--danger)">💳₡100</span></div><div class="pcact"><button class="btn btn-p btn-sm" onclick="selectProvider(&#39;mmhc9tl6my4z6&#39;)">Ver trabajos</button><button class="btn btn-g btn-sm" onclick="editProv(&#39;mmhc9tl6my4z6&#39;,event)">Editar</button><button class="btn btn-d btn-sm" onclick="deleteProv(&#39;mmhc9tl6my4z6&#39;,event)">Eliminar</button></div></div><div class="pcard"><div class="pcname">CUÑADO</div><div class="pcstats"><span class="pcs">⏳0</span><span class="pcs">📤0</span><span class="pcs">📥0</span><span class="pcs">✅0</span></div><div class="pcact"><button class="btn btn-p btn-sm" onclick="selectProvider(&#39;mmhc9xoxrlfej&#39;)">Ver trabajos</button><button class="btn btn-g btn-sm" onclick="editProv(&#39;mmhc9xoxrlfej&#39;,event)">Editar</button><button class="btn btn-d btn-sm" onclick="deleteProv(&#39;mmhc9xoxrlfej&#39;,event)">Eliminar</button></div></div><div class="pcard"><div class="pcname">ANDREA</div><div class="pcstats"><span class="pcs">⏳0</span><span class="pcs">📤0</span><span class="pcs">📥0</span><span class="pcs">✅0</span></div><div class="pcact"><button class="btn btn-p btn-sm" onclick="selectProvider(&#39;mmhca0uxoeljn&#39;)">Ver trabajos</button><button class="btn btn-g btn-sm" onclick="editProv(&#39;mmhca0uxoeljn&#39;,event)">Editar</button><button class="btn btn-d btn-sm" onclick="deleteProv(&#39;mmhca0uxoeljn&#39;,event)">Eliminar</button></div></div><div class="pcard"><div class="pcname">ERICK</div><div class="pcstats"><span class="pcs">⏳0</span><span class="pcs">📤0</span><span class="pcs">📥0</span><span class="pcs">✅0</span></div><div class="pcact"><button class="btn btn-p btn-sm" onclick="selectProvider(&#39;mmhca742g5z5d&#39;)">Ver trabajos</button><button class="btn btn-g btn-sm" onclick="editProv(&#39;mmhca742g5z5d&#39;,event)">Editar</button><button class="btn btn-d btn-sm" onclick="deleteProv(&#39;mmhca742g5z5d&#39;,event)">Eliminar</button></div></div></div></main>
+  <main class="main" id="mainContent"><div class="ph"><div><div class="pt">Milton</div><div class="ps">3 trabajo(s)</div></div><button class="btn btn-p" onclick="openJobModal()">+ Nuevo trabajo</button></div><div class="sstrip"><div class="scard sp"><div class="snum">0</div><div class="slbl">Pendientes</div></div><div class="scard ss"><div class="snum">1</div><div class="slbl">Enviados</div></div><div class="scard sr"><div class="snum">0</div><div class="slbl">Recibidos</div></div><div class="scard sd"><div class="snum">2</div><div class="slbl">Entregados</div></div><div class="scard sm"><div class="snum" style="font-size:.9rem">₡120</div><div class="slbl">Por cobrar</div></div><div class="scard sdb"><div class="snum" style="font-size:.9rem">₡0</div><div class="slbl">Por pagar prov.</div></div></div><div class="tabs"><button class="tab" onclick="switchTab(&#39;pending&#39;)">Pendientes<span class="tbadge">0</span></button><button class="tab" onclick="switchTab(&#39;sent&#39;)">Enviados<span class="tbadge">1</span></button><button class="tab active" onclick="switchTab(&#39;received&#39;)">Recibidos<span class="tbadge">0</span></button><button class="tab" onclick="switchTab(&#39;delivered&#39;)">Entregados<span class="tbadge">2</span></button></div><div class="tw"><div class="es"><div class="icon">📋</div><h3>Sin trabajos aquí</h3></div></div></main>
 </div>
 <div class="tc" id="toastC"></div>
 
